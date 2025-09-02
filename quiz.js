@@ -552,11 +552,17 @@ questions.push(
     },
     {
         day: 4,
-        type: "short",
+        type: "mcq",
         difficulty: "normal",
-        question: "삼항 연산자의 기본 구조는? (조건 ? 값1 : 값2)",
-        keywords: ["조건", "?", ":", "표현식"]
+        question: "삼항 연산자의 기본 구조는 무엇인가요?",
+        options: [
+            "조건 ? 값1 : 값2",
+            "if (조건) { 값1 } else { 값2 }",
+            "조건 && 값1 || 값2"
+        ],
+        answer: 0
     },
+
     {
         day: 4,
         type: "mcq",
@@ -799,11 +805,18 @@ questions.push(
     },
     {
         day: 5,
-        type: "short",
+        type: "mcq",
         difficulty: "hard",
         question: "JavaScript에서 함수를 값처럼 변수에 대입할 수 있는 특성을 무엇이라고 하나요?",
-        keywords: ["일급 객체", "first-class"]
+        options: [
+            "콜백 함수 (Callback Function)",
+            "일급 객체 (First-class Object)",
+            "고차 함수 (Higher-order Function)",
+            "프로토타입 기반 상속"
+        ],
+        answer: 1
     }
+
 );
 
 
@@ -829,6 +842,16 @@ function updateScoreBoard() {
     document.getElementById("currentIndex").textContent = currentIndex + 1;
 }
 
+// 진행도 업데이트
+function updateProgress() {
+    const percent = Math.floor((currentIndex / stageTotal) * 100);
+    const bar = document.getElementById("progressBar");
+    bar.style.width = percent + "%";
+    bar.textContent = percent + "%";
+}
+
+
+
 // 난이도 배지
 function updateDifficultyBadge() {
     const badge = document.getElementById("difficultyBadge");
@@ -847,7 +870,7 @@ function startTimer() {
         document.getElementById("timer").textContent = timeLeft;
         if (timeLeft <= 0) {
             clearInterval(timer);
-            alert("⏰ 시간 초과! 게임 종료");
+            alert("시간 초과! 게임 종료");
             resetGame();
         }
     }, 1000);
@@ -909,7 +932,8 @@ function loadQuestion() {
         document.getElementById("submitBtn").style.display = "inline-block";
     }
 
-    updateScoreBoard(); updateDifficultyBadge();
+    updateScoreBoard();
+    updateDifficultyBadge();
 }
 
 // 정답 체크
@@ -956,7 +980,11 @@ function submitAnswer(userInput = null) {
     }
 
     updateScoreBoard();
-    setTimeout(() => { currentIndex++; loadQuestion(); }, 1200);
+    setTimeout(() => { 
+        currentIndex++; 
+        updateProgress();
+        loadQuestion();
+    }, 1200);
 }
 
 // 오답노트
@@ -1011,7 +1039,10 @@ function startStage(step) {
     stageQuestions = getStageQuestions();
     document.getElementById("wrongList").innerHTML = "";
     document.querySelectorAll(".card-body > div.text-center.mt-4").forEach(m => m.remove());
-    loadQuestion(); startTimer();
+    
+    updateProgress();
+    loadQuestion(); 
+    startTimer();
 }
 
 // 이벤트
