@@ -26,11 +26,10 @@ const questions = // Day 1 - Easy
             day: 1,
             type: "mcq",
             difficulty: "easy",
-            question: "JavaScript에서 여러 줄 주석을 작성할 때 사용하는 기호는? (모두 고르시오)",
+            question: "JavaScript에서 여러 줄 주석을 작성할 때 사용하는 기호는?",
             options: ["//", "/* */", "<!-- -->"],
-            answer: [0]   // 복수 정답
-        }
-        ,
+            answer: [1] 
+        },
         {
             day: 1,
             type: "mcq",
