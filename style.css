@@ -1,4 +1,3 @@
-
 body {
     font-family: "Noto Sans KR", Arial, sans-serif;
     background: #f8f9fa;
@@ -68,4 +67,58 @@ h1 {
 
 .list-group-item {
     font-size: 0.9rem;
+}
+
+/* 모바일 전용  */
+@media (max-width:768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        /* 제목 크기 줄이기 */
+    }
+
+    .scoreboard .badge {
+        display: block;
+        margin: 5px auto;
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+    }
+
+    .question {
+        font-size: 1rem;
+        min-height: auto;
+    }
+
+    #options button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #answer {
+        font-size: 0.9rem;
+    }
+
+    #submitBtn {
+        font-size: 0.9rem;
+    }
+
+    .result {
+        font-size: 1rem;
+    }
+
+    .wrong-note h4 {
+        font-size: 1rem;
+    }
+
+    .list-group-item {
+        font-size: 0.8rem;
+    }
+
+    /* 진행도 바는 얇게 */
+    .progress {
+        height: 0.7rem;
+    }
 }
