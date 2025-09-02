@@ -1,0 +1,71 @@
+
+body {
+    font-family: "Noto Sans KR", Arial, sans-serif;
+    background: #f8f9fa;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-weight: 700;
+    color: #333;
+}
+
+.scoreboard .badge {
+    font-size: 1rem;
+    padding: 0.6em 1em;
+}
+
+.question {
+    min-height: 70px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+#options button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+#options button:hover {
+    transform: scale(1.02);
+}
+
+#answer {
+    border-radius: 10px 0 0 10px;
+}
+
+#submitBtn {
+    border-radius: 0 10px 10px 0;
+}
+
+.result {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.result.correct {
+    color: #28a745;
+}
+
+.result.wrong {
+    color: #dc3545;
+}
+
+.wrong-note h4 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.list-group-item {
+    font-size: 0.9rem;
+}
